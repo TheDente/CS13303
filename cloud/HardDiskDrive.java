@@ -28,7 +28,7 @@ public class HardDiskDrive {
 		this.capacityGB = capacityGB;
 
 		if ( capacityGB % CAPACITY_MULTIPLE != 0 ) {
-			System.err.println("La capacidad debe ser multiplo de " + CAPACITY_MULTIPLE);
+			throw new CloudGenericException("La capacidad debe ser multiplo de " + CAPACITY_MULTIPLE);
 		}
 
 		StringBuilder sb = new StringBuilder();
