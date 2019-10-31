@@ -4,6 +4,8 @@ import cloud.exceptions.CloudGenericException;
 
 public class Main {
 
+	public Main() {}
+
 	public static void createVM(int memory, int cpu, int diskCapacity, int suffix, String os)
 			throws CloudGenericException
 	{
@@ -36,23 +38,21 @@ public class Main {
 	// Método principal
 	public static void main(String[] args) {
 		int[] memories = {0, 1024, 2048, 4096};
-		int[] cpus = {2, 1, 1, 2};
+		int[] cpus = {2, 1, 4, 2};
 		int[] disks = {10, 0, 40, 10};
 		String[] os = {"Ubuntu", "CentOS", "Windows", "OSX"};
 
-		for (int i = 0; i < 4; i++) {
-			try {
+		
+			for (int i = 0; i < 4; i++) {
+				try {
 				Main.createVM(memories[i], cpus[i], disks[i], i, os[i]);
-				} catch(Exception e) {
-			System.err.println("Hubo un error: " + e.toString());
-	     continue;
-		} 
-	}	
-		
-		
-				
-		
-	  }
+			} catch(Exception e) {
+				System.err.println("Hubo un error: " + e.toString());
+				continue;
+			}
+		}		
+
 	}
 	
-
+	public static void printErrors(StringBuilder builder) {}
+}

@@ -43,7 +43,7 @@ public class VirtualMachine {
 	 * - name(String) mayor a 5 caracteres
 	 * - guestOS(String) mayor a 5 caracteres
 	 */
-	VirtualMachine(int cpuCount, long memoryGB, String guestOS) throws CloudGenericException{
+	VirtualMachine(int cpuCount, long memoryGB, String guestOS)throws CloudGenericException{
 		// Escribe tu código {
 		if (cpuCount < MIN_CPUS) {
 			cpuCount = MIN_CPUS;
@@ -66,7 +66,7 @@ public class VirtualMachine {
 		this.id = CloudUtil.getUUID();
 	}
 	
-	VirtualMachine(int cpuCount, long memoryGB, String name, String guestOS) throws CloudGenericException{
+	VirtualMachine(int cpuCount, long memoryGB, String name, String guestOS)throws CloudGenericException{
 		// Escribe tu código {
 		if (cpuCount < MIN_CPUS) {
 			cpuCount = MIN_CPUS;
@@ -131,11 +131,11 @@ public class VirtualMachine {
 	 *  VM está prendida e imprimir mensaje 
 	 * informando que el estado es prendido.
 	 */
-	void powerOn() {
+	void powerOn() throws CloudGenericException {
 		/* Encender la VM */
 		// Escribe tu código {
 		this.powerStatus = true;
-		System.out.println("La maquina virtual esta encendida");
+		throw new CloudGenericException("La maquina virtual esta encendida");
 		// }
 	}
 	
@@ -144,10 +144,10 @@ public class VirtualMachine {
 	 * Método powerOff: validar si la VM está apagada 
 	 * e imprimir mensaje informando que el estado es apagado.
 	 */
-	void powerOff() {
+	void powerOff() throws CloudGenericException {
 		// Escribe tu código {
 		this.powerStatus = false;
-		System.out.println("La maquina virtual esta apagada");
+		throw new CloudGenericException("La maquina virtual esta apagada");
 		// }
 	}
 	

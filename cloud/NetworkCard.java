@@ -3,56 +3,58 @@ package cloud;
 import cloud.exceptions.CloudGenericException;
 import cloud.util.CloudUtil;
 
-public class NetworkCard {
+public class NetworkCard extends VirtualDevice {
 	public static final int MAX_SPEED_MB = 100;            
-	public final String macAddress;            
-	public final int unitNumber;  
+	public final String macAddress;             
 	public final String label;
 	public int speedMb = MAX_SPEED_MB;
 	public String network;                                         
 
-	/*
-	 * NetworkCard[1]
-	 * Reemplazar concatenación de strings 
-	 * usando "+" por StringBuilder en 
-	 * Constructores 
-	 */
+	
 	NetworkCard(int unitNumber) throws CloudGenericException{
-		this.unitNumber = unitNumber;
+		super(unitNumber); 	
+
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder();
 		this.label = sb.append("Network Card ").append(unitNumber).toString();
 		// }
 		this.macAddress = CloudUtil.getMACAddress();
-		if(unitNumber < 1){
-			throw new CloudGenericException("Error: cloud.exceptions.CloudGenericException: El unitNumber debe ser mayor a 0");
+
+		if (unitNumber < 1){
+			throw new CloudGenericException ("El valor de unitNumber debe ser mayor a 1");
 		}
 	}
 	
-	NetworkCard(String network, int unitNumber) throws CloudGenericException{
+	NetworkCard(String network, int unitNumber)throws CloudGenericException{
+		super(unitNumber);
+
 		this.network = network;
-		this.unitNumber = unitNumber;
+		
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder();
 		this.label = sb.append("Network Card ").append(unitNumber).toString();
 		// }
 		this.macAddress = CloudUtil.getMACAddress();
-		if(unitNumber < 1){
-			throw new CloudGenericException("Error: cloud.exceptions.CloudGenericException: El unitNumber debe ser mayor a 0");
+
+		if (unitNumber < 1){
+			throw new CloudGenericException ("El valor de unitNumber debe ser mayor a 1");
 		}
+
 	}
 
-	NetworkCard(String network, int unitNumber, int speedMb) throws CloudGenericException{
+	NetworkCard(String network, int unitNumber, int speedMb)throws CloudGenericException{
+		super(unitNumber);
+
 		this.network = network;
-		this.unitNumber = unitNumber;
 		this.speedMb = speedMb;
 		// Escribe tu código {
 		StringBuilder sb = new StringBuilder();
 		this.label = sb.append("Network Card ").append(unitNumber).toString();
 		// }
 		this.macAddress = CloudUtil.getMACAddress();
-		if(unitNumber < 1){
-			throw new CloudGenericException("Error: cloud.exceptions.CloudGenericException: El unitNumber debe ser mayor a 0");
+
+		if (unitNumber < 1){
+			throw new CloudGenericException ("El valor de unitNumber debe ser mayor a 1");
 		}
 	}
 	
