@@ -93,6 +93,8 @@ public class VirtualMachine {
 		// }
 		this.id = CloudUtil.getUUID();
 	}
+
+
 	
 	String getID(){
 		return this.id;
@@ -108,7 +110,6 @@ public class VirtualMachine {
 		return this.powerStatus;
 		// }
 	}
-
 	/*
 	 * VirtualMachine[8]
 	 * Crear método isPoweredOff regresando 
@@ -125,35 +126,50 @@ public class VirtualMachine {
 		return this.cpuCount;
 	}
 
-	/* 
-	 * VirtualMachine[4]
-	 * Complementar Método powerOn: validar si la
-	 *  VM está prendida e imprimir mensaje 
-	 * informando que el estado es prendido.
-	 */
-	void powerOn() throws CloudGenericException {
-		/* Encender la VM */
-		// Escribe tu código {
-		this.powerStatus = true;
-		throw new CloudGenericException("La maquina virtual esta encendida");
-		// }
-	}
+	boolean getpowerStatus(){
+		return this.powerStatus;
+	} 
 	
-	/* 
-	 * VirtualMachine[5]
-	 * Método powerOff: validar si la VM está apagada 
-	 * e imprimir mensaje informando que el estado es apagado.
-	 */
-	void powerOff() throws CloudGenericException {
-		// Escribe tu código {
-		this.powerStatus = false;
-		throw new CloudGenericException("La maquina virtual esta apagada");
-		// }
-	}
+	void setpowerStatus(boolean powerStatus) {
+		/* Asignar nombre a la VM */
+		this.powerStatus = powerStatus;
+		}
+
+	int getcpuCount(){
+		return this.cpuCount;
+	} 
+	
+	void setcpuCount(int cpuCount) {
+		/* Asignar nombre a la VM */
+		this.cpuCount = cpuCount;
+		}
+
+      long getmemoryGB(){
+		return this.memoryGB;
+	} 
+	
+	void setmemoryGB(long memoryGB) {
+		/* Asignar nombre a la VM */
+		this.memoryGB = memoryGB;
+		}
+
+
+	String getName(){
+		return this.name;
+	} 
 	
 	void setName(String name) {
 		/* Asignar nombre a la VM */
 		this.name = name;
+		}
+
+	String getguestOS(){
+		return this.guestOS;
+		} 
+		
+	void setguestOS(String guestOS) {
+		/* Asignar nombre a la VM */
+		this.guestOS = guestOS;
 		}
 	/* 
 	 * VirtualMachine[2]
@@ -201,6 +217,10 @@ public class VirtualMachine {
 	String status()
 	{
 		return (isPoweredOn()) ? "Encendido" : "Apagado";
+	}
+
+	String getid(){
+		return this.id;
 	}
 
 	/*
