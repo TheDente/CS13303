@@ -37,15 +37,16 @@ public class Main {
 
 	// Método principal
 	public static void main(String[] args) {
-		int[] memories = {0, 1024, 2048, 4096};
-		int[] cpus = {2, 1, 4, 2};
-		int[] disks = {10, 0, 40, 10};
-		String[] os = {"Ubuntu", "CentOS", "Windows", "OSX"};
-
+		int[] memories = {0, 1024, 2048, 4096, 5000};
+		int[] cpus = {2, 1, 1, 2, 1};
+		int[] disks = {10, 0, 40, 10, 80};
+		String[] os = {"Ubuntu", "CentOS", "Windows", "OSX", "Suse"};
+		int suffix;
 		
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 5; i++) {
 				try {
-				Main.createVM(memories[i], cpus[i], disks[i], i, os[i]);
+				suffix = i;
+				Main.createVM(memories[i], cpus[i], disks[i], suffix, os[i]);
 			} catch(Exception e) {
 				System.err.println("Hubo un error: " + e.toString());
 				continue;
